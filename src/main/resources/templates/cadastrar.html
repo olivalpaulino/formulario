@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Cadastrar</title>
+</head>
+<body>
+	<h1 th:text="${tituloh1}">Cadastrar</h1>
+	
+	<fieldset>
+		<legend>Cadastro de Usuário</legend>
+		<form th:action="@{/salvar}" th:method="post" th:object="${usuario}">
+			<p>
+				<label>Nome: </label>
+				<input type="text" th:field="*{nome}" />
+			</p>
+			
+			<p>
+				<label>Cpf: </label>
+				<input type="text" th:field="*{cpf}" />
+			</p>
+			
+			<p>
+				<label>Sexo: </label>
+				<input type="radio" value="masculino" th:field="*{sexo}"  />Masculino
+				<input type="radio" value="feminino" th:field="*{sexo}" />Feminino
+				<input type="radio" value="naoresponder" th:field="*{sexo}" />Não Responder
+			</p>
+			
+			<p>
+				<label>Login: </label>
+				<input type="text" th:field="*{login}" />	
+			</p>
+			
+			<p>
+				<label>Senha: </label>
+				<input type="text" th:field="*{senha}" placehoder="Insira a senha!" />
+			</p>
+			
+			<p>Cargo:
+				<select th:field="*{cargo}">
+					<option value="backend" name="cargo">Backend</option>
+					<option value="frontend" name="cargo">Front-end</option>
+					<option value="fullstack" name="cargo">Full Stack</option>
+					<option value="mobile" name="cargo">Mobile</option>
+					<option value="devops" name="devops">DevOps</option>
+				</select>
+			</p>
+			
+			<p>
+				<labe>Habilidades: </label>
+				<input type="checkbox" value="java" th:field="*{habilidades}" />Java
+				<input type="checkbox" value="mysql" th:field="*{habilidades}" />MySQL
+				<input type="checkbox" value="springboot" th:field="*{habilidades}" />Spring Boot
+				<input type="checkbox" value="postman" th:field="*{habilidades}" />Postman
+				<input type="checkbox" value="git" th:field="*{habilidades}" />Git
+			</p>
+			
+			<button type="submit">Cadastrar</button>
+			<button type="reset">Limpar</button>
+		</form>
+	</fieldset>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+<head>
+	<title>Mostrar</title>
+</head>
+
+<body>
+	<table border="1">
+		<tr>
+			<th>Id</th>
+			<th>Nome</th>
+			<th>Cpf</th>
+			<th>Sexo</th>
+			<th>Login</th>
+			<th>Senha</th>
+			<th>Cargo</th>
+			<th>Habilidade</th>
+			<th>Editar</th>
+			<th>Excluir</th>
+		</tr>
+		
+		<tr th:each="usuario : ${usuarios}">
+			<td th:text=${usuario.id}></td>
+			<td th:text=${usuario.nome}></td>
+			<td th:text=${usuario.cpf}></td>
+			<td th:text=${usuario.sexo}></td>
+			<td th:text=${usuario.login}></td>
+			<td th:text=${usuario.senha}></td>
+			<td th:text=${usuario.cargo}></td>
+			<td th:text=${usuario.habilidades}></td>
+			<td><a th:href="@{/editar/{login}(login=${usuario.id})}">Editar</a></td>
+			<td><a th:href="@{/excluir/{cpf}(cpf=${usuario.cpf})}">Excluir</a></td>
+		</tr>
+	</table>	
+
+	<a href="/cadastrar">Cadastrar</a>
+	<a href="/editar">Editar</a>
+	<a href="/excluir">Excluir</a>
+	<a href="/mostrar">Mostrar</a>
+	<a href="/home">Home</a>
+</body>
+</html>
